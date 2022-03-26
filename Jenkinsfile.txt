@@ -4,17 +4,14 @@ pipeline {
 		
 		
 		// ******ALL CODE TO BE ADDED BELOW THIS COMMENT******
-			//Code starts for stage Clean
+		
+	//Code starts for stage Clean
         stage('Clean') {
             steps {
                 sh 'mvn clean'
             }
         }
 		//Code ends for stage Clean
-		
-		
-		
-		
 		
 		//Code starts for stage Compile
 		stage('Compile') {
@@ -23,8 +20,6 @@ pipeline {
             }
         }
 		//Code ends for stage Compile
-		
-		
 		
 		//Code starts for stage Unit Test
         stage('Unit Test') {
@@ -39,7 +34,6 @@ pipeline {
         }
 		//Code ends for stage Unit Test
 		
-		
 		//Code starts for stage Code Coverage
 		stage('Code Coverage') {
             steps {
@@ -47,7 +41,6 @@ pipeline {
             }
         }
 		//Code ends for stage Code Coverage
-		
 		
 		//Code starts for stage Install
 		stage('Install') {
@@ -74,7 +67,8 @@ pipeline {
             }
         }
 		//Code ends for stage Deploy War on Tomcat Server
-	//Code starts for stage API Test
+		
+		//Code starts for stage API Test
 		stage('API Test') {
             steps {
 				//Change git url below as per your forked github repository URL
@@ -83,15 +77,16 @@ pipeline {
             }
         }
 		//Code ends for stage API Test	
+		
 		//Code starts for stage System Test
 		stage('System Test') {
             steps {
 				//Change git url below as per your forked github repository URL
-				git url: 'https://github.com/JeeKayPee/EMAPITests-ex.git'
+				git url: 'https://github.com/JeeKayPee/EMSystemTests-ex.git'
             	sh 'mvn -Dtest=ExpenseManagerSystemTest test'
             }
         }
-		//Code ends for stage System Test
+		//Code ends for stage System Test	
 	
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     }
